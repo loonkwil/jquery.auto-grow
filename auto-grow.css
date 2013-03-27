@@ -1,0 +1,36 @@
+.auto-growing-editor-container {
+  position: relative;
+  display: inline-block;
+}
+
+.auto-growing-editor {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  border: 1px solid black;
+
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
+
+  background: transparent;
+  white-space: -moz-pre-wrap; /* Firefox */
+  white-space: -o-pre-wrap; /* newer Opera */
+  white-space: -pre-wrap; /* ancient Opera */
+  white-space: pre-wrap; /* Chrome; W3C standard */
+  word-wrap: break-word; /* IE */
+}
+
+textarea.auto-growing-editor {
+  overflow: hidden;
+  resize: none;
+}
+
+pre.auto-growing-editor {
+  width: 100%;
+  position: absolute;
+  top: 0; left: 0;
+  z-index: -1;
+  color: transparent;
+}
