@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Auto growing textarea</title>
+
+  <link rel="stylesheet" href="auto-grow.css">
+  <link rel="stylesheet" href="gh-pages.css">
+  <style>
+    .auto-growing-editor-container {
+      width: 100%;
+    }
+
+    .auto-growing-editor {
+      padding: 5px;
+      margin: 10px 0 30px;
+    }
+
+    mark {
+      color: transparent;
+      background: yellow;
+    }
+
+    #text1 .auto-growing-editor {
+      height: 100px;
+    }
+
+    #text3 .auto-growing-editor {
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Auto growing textarea</h1>
+    <a href="http://github.com/loonkwil/auto-grow">http://github.com/loonkwil/auto-grow</a>
+  </header>
+
+  <pre>$(function() {
+  $('textarea').autoGrow();
+});</pre>
+  <p>
+    You can set the minimum height of the textarea by setting the
+    <em>height</em> css property or the <em>rows</em> HTML attribute.
+  </p>
+  <span id="text1">
+    <textarea autofocus>sample text</textarea>
+  </span>
+
+  <p>You can set a callback function to highlight a string:</p>
+  <pre>$(function() {
+  $('textarea').autoGrow({
+    highlight: function(str) {
+      // if you want to highlight the "&gt;", "&lt;" or the "&amp;"
+      // character, you have to search for the <em>&amp;lt;</em>, <em>&amp;gt;</em>
+      // or the <em>&amp;amp;</em> string
+
+      return str.replace(
+        /(highlight)/g,
+        '&lt;mark&gt;$1&lt;/mark&gt;'
+      );
+    }
+  });
+});</pre>
+  <span id="text2">
+    <textarea>sample text with highlight</textarea>
+  </span>
+
+  <p>
+    The plugin will recalculate the height of the textarea when you resize the
+    window. If you don't need this (for example you have a fixed width textarea),
+    you can disable.
+  </p>
+  <pre>$(function() {
+  $('textarea').autoGrow({
+    recalculateOnResize: false
+  });
+});</pre>
+  <span id="text3">
+    <textarea>sample text</textarea>
+  </span>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="jquery.auto-grow.js"></script>
+  <script>
+    $(function() {
+      $('#text1 textarea').autoGrow();
+
+      $('#text2 textarea').autoGrow({
+        highlight: function(str) {
+          return str.replace(/(highlight)/g, '<mark>$1</mark>');
+        }
+      });
+
+      $('#text3 textarea').autoGrow({
+        recalculateOnResize: false
+      });
+    });
+  </script>
+</body>
+</html>
