@@ -8,6 +8,7 @@
   "use strict";
 
   var $ = window.jQuery;
+  var navigator = window.navigator;
 
   /**
    * @type {Object}
@@ -107,6 +108,12 @@
         parent().
         addClass('auto-growing-editor-container').
         append($shadow);
+
+      // Fixing iOS Safari bug
+      // http://stackoverflow.com/questions/6890149/remove-3-pixels-in-ios-webkit-textarea
+      if( /iPhone|iPad/i.test(navigator.userAgent) ) {
+        $textarea.css('text-indent', '-3px');
+      }
 
       fixAutoGrowingContent($textarea, options.highlight);
 
