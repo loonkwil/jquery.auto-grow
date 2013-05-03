@@ -1,6 +1,6 @@
 A jQuery plugin for auto growing textareas.
 
-Example usage: http://loonkwil.github.com/jquery.auto-grow
+Example usage: http://loonkwil.github.io/jquery.auto-grow/
 
 # Install
 
