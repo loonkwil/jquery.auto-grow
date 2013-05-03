@@ -108,6 +108,12 @@
         addClass('auto-growing-editor-container').
         append($shadow);
 
+      // Fixing iOS Safari bug
+      // http://stackoverflow.com/questions/6890149/remove-3-pixels-in-ios-webkit-textarea
+      if( /iPhone|iPad/i.test(navigator.userAgent) ) {
+        $shadow.css({paddingLeft: '+=3px', paddingRight: '+=3px'});
+      }
+
       fixAutoGrowingContent($textarea, options.highlight);
 
       if( hasFocus ) {
