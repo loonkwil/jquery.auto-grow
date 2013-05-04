@@ -15,10 +15,10 @@
   box-sizing: border-box; /* Opera/IE 8+ */
 
   background: transparent;
-  white-space: -moz-pre-wrap; /* Firefox */
-  white-space: -o-pre-wrap; /* newer Opera */
-  white-space: -pre-wrap; /* ancient Opera */
-  white-space: pre-wrap; /* Chrome; W3C standard */
+  white-space: -moz-pre; /* Firefox */
+  white-space: -o-pre; /* newer Opera */
+  white-space: -pre; /* ancient Opera */
+  white-space: pre; /* Chrome; W3C standard */
   word-wrap: break-word; /* IE */
 }
 
