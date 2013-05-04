@@ -35,9 +35,12 @@
   var fixAutoGrowingContent = function($textarea, highlight) {
     var $shadow = $textarea.siblings('.auto-growing-editor');
 
-    var text = escape($textarea.val());
+    var text = $textarea.val();
     if( typeof highlight === 'function' ) {
       text = highlight(text);
+    }
+    else {
+      text = escape($textarea.val());
     }
 
     $shadow.
