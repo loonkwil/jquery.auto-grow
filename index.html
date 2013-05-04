@@ -51,14 +51,17 @@
   <pre>$(function() {
   $('textarea').autoGrow({
     highlight: function(str) {
-      // if you want to highlight the "&gt;", "&lt;" or the "&amp;"
-      // character, you have to search for the <em>&amp;lt;</em>, <em>&amp;gt;</em>
-      // or the <em>&amp;amp;</em> string
+      return str.
+        // you have to escape the "&amp;", "&gt;" and the
+        // "&lt;" character manualy
+        replace(/&amp;/g, '&amp;amp;').
+        replace(/&gt;/g, '&amp;gt;').
+        replace(/&lt;/g, '&amp;lt;').
 
-      return str.replace(
-        /(highlight)/g,
-        '&lt;mark&gt;$1&lt;/mark&gt;'
-      );
+        replace(
+          /(highlight)/g,
+          '&lt;mark&gt;$1&lt;/mark&gt;'
+        );
     }
   });
 });</pre>
@@ -88,7 +91,11 @@
 
       $('#text2 textarea').autoGrow({
         highlight: function(str) {
-          return str.replace(/(highlight)/g, '<mark>$1</mark>');
+          return str.
+            replace(/&/g, '&amp;').
+            replace(/>/g, '&gt;').
+            replace(/</g, '&lt;').
+            replace(/(highlight)/g, '<mark>$1</mark>');
         }
       });
 
