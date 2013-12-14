@@ -2,7 +2,7 @@
  * A jQuery plugin for auto growing textareas
  * https://github.com/loonkwil/auto-growing-textarea
  *
- * Date: Mar 26 2013
+ * Date: Dec 14 2013
  */
 (function(window, undefined) {
   "use strict";

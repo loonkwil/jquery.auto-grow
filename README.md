@@ -4,6 +4,12 @@ Example usage: http://loonkwil.github.io/jquery.auto-grow/
 
 # Install
 
+Requirements [Bower](https://github.com/bower/bower)
+
+```bash
+bower install
+```
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -13,8 +19,8 @@ Example usage: http://loonkwil.github.io/jquery.auto-grow/
 <body>
   <textarea></textarea>
 
-  <script src="js/jquery.js"></script>
-  <script src="js/jquery.auto-grow.js"></script>
+  <script src="bower_components/jquery/jquery.js"></script>
+  <script src="bower_components/jquery.auto-grow.js"></script>
   <script type="text/javascript">
     $(function() {
       $('textarea').autoGrow();
