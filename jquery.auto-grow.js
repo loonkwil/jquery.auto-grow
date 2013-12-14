@@ -2,7 +2,7 @@
  * A jQuery plugin for auto growing textareas
  * https://github.com/loonkwil/auto-growing-textarea
  *
- * Date: Mar 26 2013
+ * Date: Dec 14 2013
  */
 (function(window, undefined) {
   "use strict";
@@ -30,22 +30,20 @@
 
   /**
    * @param {jQuery} $textarea
-   * @param {function(string): string} convert
+   * @param {function(string): string} highlight
+   * @param {boolean} syncHtml
    */
-  var fixAutoGrowingContent = function($textarea, highlight) {
+  var fixAutoGrowingContent = function($textarea, highlight, syncHtml) {
+    if( syncHtml === undefined ) { syncHtml = true; }
     var $shadow = $textarea.siblings('.auto-growing-editor');
 
-    var text = $textarea.val();
-    if( typeof highlight === 'function' ) {
-      text = highlight(text);
-    }
-    else {
-      text = escape($textarea.val());
+    if( syncHtml ) {
+      var text = $textarea.val();
+      text = (typeof highlight === 'function') ? highlight(text) : escape(text);
+      $shadow.html(text);
     }
 
-    $shadow.
-      html(text).
-      height('auto');
+    $shadow.height('auto');
 
     var height = Math.max(
       $shadow.height(),
@@ -62,12 +60,21 @@
     $shadow.height(height);
   };
 
+  /**
+   * @param {jQuery} $textareas
+   * @param {function(string): string} highlight
+   * @param {boolean} syncHtml
+   */
+  var fixAutoGrowingContents = function($textareas, highlight, syncHtml) {
+    var l = $textareas.length;
+    for( var i = 0; i < l; ++i ) {
+      fixAutoGrowingContent($textareas.eq(i), highlight, syncHtml);
+    }
+  };
+
 
   /**
-   * @param {Object} options Avriable options:
-   *   {boolean} recalculateOnResize = true recalculate textarea height on
-   *   window resize,
-   *   {function} highlight
+   * @param {{ recalculateOnResize: boolean, highlight: function }} options
    * @return {jQuery}
    */
   $.fn.autoGrow = function(options) {
@@ -77,20 +84,18 @@
 
     // window resize event
     if( options.recalculateOnResize ) {
-      var resizeTick = null;
-      $(window).on('resize', function() {
-        if( resizeTick !== null ) {
-          return;
-        }
+      var queued = false;
+      var windowResizeEvent = function() {
+        if( queued ) { return; }
+        queued = true;
 
-        resizeTick = window.setTimeout(function() {
-          $textareas.each(function() {
-            fixAutoGrowingContent($(this), options.highlight);
-          });
-
-          resizeTick = null;
+        window.setTimeout(function() {
+          fixAutoGrowingContents($textareas, options.highlight, false);
+          queued = false;
         }, 100);
-      });
+      };
+
+      $(window).on('resize', windowResizeEvent);
     }
 
     return $textareas.each(function() {
