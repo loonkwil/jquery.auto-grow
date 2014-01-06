@@ -10,17 +10,17 @@
   font: inherit;
   border: 1px solid black;
 
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 
   background: transparent;
 
-  white-space: -moz-pre-wrap; /* Firefox */
-  white-space: -o-pre-wrap; /* newer Opera */
-  white-space: -pre-wrap; /* ancient Opera */
-  white-space: pre-wrap; /* Chrome; W3C standard */
-  word-wrap: break-word; /* IE */
+  white-space: -moz-pre-wrap;
+  white-space: -o-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 
   word-break: break-all;
 }
