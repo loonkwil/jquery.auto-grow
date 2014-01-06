@@ -15,9 +15,11 @@
       replace(/</g, '&lt;');
   };
 
-  var largeText = Array.apply(null, { length: 1000 }).
-    map(function(){ return 'Lorem ipsum dolor sit amet.'; }).
-    join(' ');
+  var largeText = function() {
+    var ret = [];
+    for( var i = 0; i < 1000; ++i ) { ret.push('Lorem ipsum dolor sit amet.'); }
+    return ret.join(' ');
+  }();
 
   var $currentTextarea;
   var $currentShadow;
@@ -37,11 +39,6 @@
       }
     }
   );
-
-  q.test('test autofocus', function() {
-    expect(1);
-    q.ok($currentTextarea.is(':focus'));
-  });
 
   q.test('test initial width and height', function() {
     expect(2);
