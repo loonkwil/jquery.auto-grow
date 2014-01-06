@@ -3,7 +3,6 @@
 
   var $ = window.jQuery;
   var q = window.QUnit;
-  q.config.autostart = false;
 
   var setTextareaValue = function($textarea, value) {
     $textarea.val(value).trigger('input');
@@ -26,9 +25,6 @@
   var $currentShadow;
   var initialText;
 
-  q.begin(function() {
-    q.start();
-  });
 
   q.module(
     '#1 minimum height: undefined', {
