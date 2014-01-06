@@ -4,7 +4,9 @@
 
 A jQuery plugin for auto growing textareas.
 
-Example usage: http://loonkwil.github.io/jquery.auto-grow/
+Example usage:
+[http://loonkwil.github.io/jquery.auto-grow](http://loonkwil.github.io/jquery.auto-grow),
+[Regexify](http://loonkwil.github.io/regexify)
 
 ## Install
 
