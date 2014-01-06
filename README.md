@@ -1,8 +1,12 @@
+# jQuery Auto Grow
+
+[![Build Status](https://travis-ci.org/loonkwil/jquery.auto-grow.png)](https://travis-ci.org/loonkwil/jquery.auto-grow)
+
 A jQuery plugin for auto growing textareas.
 
 Example usage: http://loonkwil.github.io/jquery.auto-grow/
 
-# Install
+## Install
 
 Requirements [Bower](https://github.com/bower/bower)
 
