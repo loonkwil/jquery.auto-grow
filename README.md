@@ -20,13 +20,13 @@ bower install git@github.com:loonkwil/jquery.auto-grow.git --save
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="bower_components/jquery.auto-grow/auto-grow.css">
+  <link rel="stylesheet" href="bower_components/jquery.auto-grow/src/auto-grow.css">
 </head>
 <body>
   <textarea></textarea>
 
   <script src="bower_components/jquery/jquery.js"></script>
-  <script src="bower_components/jquery.auto-grow/jquery.auto-grow.js"></script>
+  <script src="bower_components/jquery.auto-grow/src/jquery.auto-grow.js"></script>
   <script type="text/javascript">
     $(function() {
       $('textarea').autoGrow();
