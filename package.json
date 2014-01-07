@@ -1,6 +1,6 @@
 {
   "name": "jquery.auto-grow",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "git@github.com:loonkwil/jquery.auto-grow.git"
@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "grunt": "~0.4",
-    "grunt-contrib-qunit": "~0.3"
+    "grunt-contrib-qunit": "~0.3",
+    "grunt-bump": "~0.0.13"
   }
 }
