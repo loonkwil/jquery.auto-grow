@@ -13,7 +13,7 @@ Example usage:
 Requirements [Bower](https://github.com/bower/bower)
 
 ```bash
-bower install git@github.com:loonkwil/jquery.auto-grow.git --save
+bower install git://github.com/loonkwil/jquery.auto-grow.git --save
 ```
 
 ```html
