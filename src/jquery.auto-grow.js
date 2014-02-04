@@ -41,21 +41,21 @@
       $shadow.html(text);
     }
 
-    $shadow.height('auto');
+    $shadow.css('height', 'auto');
 
     var height = Math.max(
-      $shadow.height(),
+      $shadow.css('height').replace('px', ''),
       $textarea.data('minHeight')
     );
 
-    $textarea.height(height);
+    $textarea.css('height', height);
     var scrollHeight = $textarea.prop('scrollHeight');
     if( scrollHeight > height ) {
       height = scrollHeight;
-      $textarea.height(height);
+      $textarea.css('height', height);
     }
 
-    $shadow.height(height);
+    $shadow.css('height', height);
   };
 
   /**
